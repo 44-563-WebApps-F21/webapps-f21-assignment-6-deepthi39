@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     <title>
+        Arithmetic Page
+     </title>
+     <header>
+         Deepthi Kaithi computes
+     </header>
+ </head>
+<body>
+
+<h2>Getting input</h2>
+
+<form>
+    <label for="base">Enter a base </label>
+    <input type ="number" id="base" name="Base element" value=10> <br>
+
+    <label for="exponent">Enter an exponent </label>
+    <input type ="number" id="exponent" name="Exponent element”" value=2> <br>
+
+    <input type="button" onclick="powers()" value="Compute">
+</form>
+
+<p id="result"> This text will be replaced</p>
+
+<form>
+    <input type="radio" id="rg1_addition" name="operation" onclick="processRadio(this.value)" value="addition">
+    <label for="rg1_addition">+</label></br>
+
+    <input type="radio" id="rg1_subtraction" name="operation" onclick="processRadio(this.value)" value="subtraction">
+    <label for="rg1_subtraction">-</label></br>
+
+    <input type="radio" id="rg1_multiplication" name="operation" onclick="processRadio(this.value)" value="multiplication">
+    <label for="rg1_multiplication">*</label></br>
+
+    <input type="radio" id="rg1_division" name="operation" onclick="processRadio(this.value)" value="division">
+    <label for="rg1_division">/</label></br>
+</form>
+
+<p id="result1">This text will be replaced</p>
+
+<script> 
+    function powers()
+        {
+            let B = document.getElementById("base").value;
+            let E = document.getElementById("exponent").value;
+            var result="";
+            for( let i=1;i<=E;i++)
+            {
+               result+=Math.pow(B,i)+" ";
+            }
+            document.getElementById("result").innerHTML = "Powers of " + B + " are : " + result;
+        }
+
+        function processRadio(operation)
+        {
+            let B = document.getElementById("base").value
+            let E = document.getElementById("exponent").value
+            var result = 0;
+            if (operation == "addition") 
+            {             
+                result = (Number)(B) + (Number)(E);
+                document.getElementById("result1").innerHTML = "Addition of " + B + " and " + E + " = " + result;
+            }
+            else if (operation == "subtraction") 
+            {              
+                result += (Number)(B) - (Number)(E);
+                document.getElementById("result1").innerHTML = "Subtraction of " + B + " and " + E + " = " + result;
+            }
+            else if (operation == "multiplication") 
+            {               
+                result += (Number)(B) * (Number)(E);
+                document.getElementById("result1").innerHTML = "Multiplication of " + B + " and " + E + " = " + result;
+            }
+            else if (operation == "division") 
+            {              
+                result += (Number)(B) / (Number)(E);
+                document.getElementById("result1").innerHTML = "Division of " + B + " and " + E + " = " + result;
+            }
+      
+        }
+
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("age").value
+    nick = document.getElementById("nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+</script>
+
+</body>
+</html>
